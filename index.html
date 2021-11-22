@@ -10,13 +10,18 @@
 <body>
   
   <div id="app">
-    <div v-if="httpError === false">
-      <ul class="m-5">
-        <li v-for="email in emailList">{{email}}</li>
-      </ul>
+    <div v-cloak>
+
+      <div>
+        <ul class="m-5">
+          <li v-if="isLoading === false">Loading...</li>
+          <li v-for="email in emailList">{{email}}</li>
+        </ul>
+      </div>
+
+      <h2 v-if="httpError===true">ERRORE</h2>
     </div>
 
-    <h2 v-else>ERRORE</h2>
   </div>
 
 
